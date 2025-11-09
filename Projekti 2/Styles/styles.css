@@ -1,8 +1,8 @@
 body {
     background-color: #2E4F3D;
-    color: #D3D6D4;
-    font: Lora;
-
+    color: #eee5d3;
+    font-family: Garamond serif ;
+    font-size: large;
 }
 #logo {
     text-align: center;
@@ -10,25 +10,78 @@ body {
 
 h1 {
     text-align: center;
-    font-family: Karla;
+    font-family: Georgia serif;
 }
 
 #navi {
     padding: 20px;
-    
-    font-size: large;
+    text-align: center;
+    font-size: x-large;
+}
+
+#hakuotsikko {
+    margin: 0px;
+}
+
+.nav-button.haku-button {
+    background-color: #6B8F71;
+    padding: 10px;
+    border-radius: 60px;
+    text-align: center;
+    color: #b7cdeb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
 }
 
 .nav-button {
-     background-color: #6B8F71;
-    padding: 10px 20px;
+    background-color: #6B8F71;
+    padding: 40px;
     margin: 10px;
-    border-radius: 8px;
+    border-radius: 60px;
     text-align: center;
+    color: #b7cdeb;
+}
+
+.hakuwrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 25px;
+    padding: 5px 10px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hakukentta {
+    color: #5A7CA8;
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 300px;
+    font-size: medium;
+    margin: 4px;
+}
+
+.hakukentta::placeholder {
+    color: #5a7ca8bd;
+}
+
+.search-icon {
+    color: #5a7ca8bd;
+    margin-left: 5px;
 }
 
 a:hover {
-    color: #5A7CA8
+    color: #5A7CA8;
 }
 
 footer {

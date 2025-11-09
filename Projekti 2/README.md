@@ -1,5 +1,5 @@
 # KirjaLähde - REST APIlla tehty kirjasto
-Tekijät: Saara Orvas
+Tekijä: Saara Orvas
 
 ## Verkkolinkit:
 Linkki videoesittelyyn: 
@@ -29,18 +29,29 @@ Linkki julkaistuun APIin:
 
 
 ## Teknologiat
+Projektin toteutuksessa on käytetty seuraavia teknologioita:
+
+- HTML
+- CSS
+- Bootstrap 5
+- JavaScript
+    - 
 
 
 ## Asennus
-Jotta voit käyttää sovellusta, lataa kaikki tiedostot ja avaa index.html selaimessa.
+1. Lataa tai kloonaa tämä repositorio
+2. Avaa index.html selaimessa
 
 TAI
 
-Mene linkistä julkaistuun sovellukseen, jolloin erillinen asennus ei ole tarpeen.
+Mene linkistä julkaistuun sovellukseen, jolloin repositorion lataaminen ei ole tarpeen.
 
 ## Kiitokset
+Projektin toteutuksessa hyödynnettiin seuraavia lähteitä:
 
 - Open Library API
+- [Stackoverflow](https://stackoverflow.com/questions/48123635/add-user-text-input-to-url)
+- [dcode](https://www.youtube.com/watch?v=f6ocDCkCmhM)
 
 
 ## Lisenssi
