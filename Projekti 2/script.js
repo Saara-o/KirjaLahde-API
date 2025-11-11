@@ -3,8 +3,8 @@ const hakusana = hakukentta.value.trim();
 
 // Luodaan AJAX-olio
 function haeData (hakusana) {
-    // Luodaan URL, jossa on käyttäjän syöte otettu huomioon
-    let url = "https://openlibrary.org/search.json?q=" + encodeURIComponent(hakusana);
+    // Luodaan URL, jossa on käyttäjän syöte otettu huomioon (title)
+    let url = "https://openlibrary.org/search.json?title=" + encodeURIComponent(hakusana);
     let xhr = new XMLHttpRequest();
     // Kerrotaan mihin osoitteeseen tietopyyntö lähtee
     xhr.open("GET", url, true);
@@ -27,21 +27,25 @@ function haeData (hakusana) {
         let rivit;
 
         // Luodaan silmukka joka käy läpi kaikki tulostusrivit
-        for (let i = 0; i < data.)
-         = `
-            <table>
-                <tr>
-                    <td>${data.title}</td>
-                    <td>${data.author_name}</td>
-                    <td>${data.first_publish_year}</td>
-                    <td>${data.language}</td>
-                    <td>${data.ebook_access}</td>
-                    <td>${data.lending_edition_s}</td>
-                <tr>
+        for (let i = 0; i < data.length; i++) {
+            rivit += `<tr>
+                        <td>${data.title}</td>
+                        <td>${data.author_name}</td>
+                        <td>${data.first_publish_year}</td>
+                        <td>${data.language}</td>
+                        <td>${data.ebook_access}</td>
+                        <td>${data.lending_edition_s}</td>
+                    <tr>`;
+        // Rakennetaan taulu tuloksille
+        let taulu = `
+            <table border = 1>
+                ${rivit}
             </table>
             `;
-        console.log(taulukko); // käsitellään hakutulokset
-        document.querySelector("#").innerHTML = taulukko;
+        }
+
+        // Sijoitetaan tulokset nimiseen div-elementtiin
+        document.querySelector("#tulokset").innerHTML = taulu;
     }
 }
 
