@@ -6,9 +6,12 @@ body {
 }
 #logo {
     width: 100%;
+    max-width: 1300px;
+    height: auto;
     display: flex;
     justify-content: center;
-    margin: 0px;
+    align-items: center;
+    margin: 0 auto;
 }
 
 h1 {
@@ -38,13 +41,7 @@ h1 {
     gap: 4px;
 }
 
-.nav-button {
-    background-color: #6B8F71;
-    padding: 40px;
-    margin: 10px;
-    border-radius: 60px;
-    text-align: center;    
-}
+
 
 .hakuwrapper {
     display: flex;
@@ -68,7 +65,8 @@ form {
     outline: none;
     border: none;
     background: transparent;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     font-size: large;
     margin: 4px;
 }
@@ -80,6 +78,11 @@ form {
 .search-icon {
     color: #5a7ca8bd;
     margin-left: 5px;
+}
+
+#tulokset {
+  overflow-x: auto;
+  width: 100%;
 }
 
 .kirjataulu {
@@ -94,24 +97,78 @@ form {
 }
 
 .kirjataulu th {
-    padding: 20px;
-    margin: 20px;
+    padding: 35px;
+    margin: 35px;
     text-align: left;
     font-size: large;
+    overflow-wrap: break-word;
+}
+
+.kirjataulu th:nth-child(2),
+.kirjataulu th:nth-child(3) {
+    text-align: center;
 }
 
 .kirjataulu td {
     padding: 10px;
     margin: 10px;
-    padding-left: 20px;
-    margin-left: 20px;
+    padding-left: 35px;
+    margin-left: 35px;
+    padding-right: 35px;
+    margin-right: 35px;
     text-align: left;
     padding-bottom: 30px;
     font-size: large;
+    max-width: 0;
+    overflow-wrap: break-word;
+}
+
+.kirjataulu td:nth-child(2),
+.kirjataulu td:nth-child(3) {
+    text-align: center;
 }
 
 footer {
     text-align: center;
     position: sticky;
     bottom: 0;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: medium;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: large;
+        text-align: center;
+    }
+
+    #logo img{
+        max-width: 70%;
+    }
+
+    .hakuwrapper {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .hakukentta {
+        width: 100%;
+        font-size: small;
+        margin: 8px;
+    }
+    .kirjataulu {
+        width: 100%;
+        font-size: small;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .kirjataulu th,
+    .kirjataulu td {
+        font-size: small;
+    }
 }
