@@ -1,5 +1,26 @@
 const hakukentta = document.querySelector(".hakukentta");
-const hakusana = hakukentta.value.trim();
+
+// Lisätään kuuntelija hakukenttään
+hakukentta.addEventListener("keypress", clickEnter);
+
+// Enter-näppäimen painalluksesta submit
+function clickEnter (e) {
+    // Tarkistetaan, että painettu Enter-näppäintä
+    if (e.key === "Enter") {
+        e.preventDefault(); // Estetään lomakkeen oletustoiminta
+        const pituus = hakukentta.value.length;
+        const hakusana = hakukentta.value.trim();
+
+        // Hakukentän tarkastus
+        if (pituus === 0) {
+        alert("Hakukenttä on tyhjä.")
+        hakukentta.disabled = true;
+        return;
+    }
+        // Jos kenttä ei ole tyhjä
+        haeData(hakusana);
+    }
+}
 
 // Luodaan AJAX-olio
 function haeData (hakusana) {
@@ -20,52 +41,39 @@ function haeData (hakusana) {
     };
     // Lähetetään edellä muovattu AJAX-olio
     xhr.send();
-
-    // Datan käsittelevä funktio
-    function parsiData(data) {
-        // Luodaan muuttuja kohon tulokset kootaan
-        let rivit;
-
-        // Luodaan silmukka joka käy läpi kaikki tulostusrivit
-        for (let i = 0; i < data.length; i++) {
-            rivit += `<tr>
-                        <td>${data.title}</td>
-                        <td>${data.author_name}</td>
-                        <td>${data.first_publish_year}</td>
-                        <td>${data.language}</td>
-                        <td>${data.ebook_access}</td>
-                        <td>${data.lending_edition_s}</td>
-                    <tr>`;
-        // Rakennetaan taulu tuloksille
-        let taulu = `
-            <table border = 1>
-                ${rivit}
-            </table>
-            `;
-        }
-
-        // Sijoitetaan tulokset nimiseen div-elementtiin
-        document.querySelector("#tulokset").innerHTML = taulu;
-    }
 }
+// Datan käsittelevä funktio
+function parsiData(data) {
+    // Luodaan muuttuja kohon tulokset kootaan
+    let rivit = "";
 
-// Lisätään kuuntelija hakukenttään
-hakukentta.addEventListener("keypress", clickEnter);
-
-// Enter-näppäimen painalluksesta submit
-function clickEnter (e) {
-    const pituus = hakukentta.value.length;
-    // Tarkistetaan, että painettu Enter-näppäintä
-    if (e.key === "Enter") {
-        e.preventDefault(); // Estetään lomakkeen oletustoiminta
-
-        // Hakukentän tarkastus
-        if (pituus === 0) {
-        alert("Hakukenttä on tyhjä.")
-        hakukentta.disabled = true;
-        return;
+    // Luodaan silmukka joka käy läpi kaikki tulostusrivit
+    for (let i = 0; i < data.docs.length; i++) {
+        rivit += `<tr>
+                    <td>${data.docs[i].title}</td>
+                    <td>${data.docs[i].author_name}</td>
+                    <td>${data.docs[i].first_publish_year}</td>
+                    <td>${data.docs[i].language}</td>
+                </tr>`;
     }
-        // Jos kenttä ei ole tyhjä
-        haeData(hakukentta.value.trim());
-    }
+
+    // Rakennetaan taulu tuloksille
+    const taulu = `
+        <table class = "kirjataulu">
+            <thead>
+                <tr>
+                    <th>Kirjan nimi</th>
+                    <th>Tekijä</th>
+                    <th>Julkaisuvuosi</th>
+                    <th>Kielet</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${rivit}
+            </tbody>
+        </table>
+    `;
+
+    // Sijoitetaan tulokset nimiseen div-elementtiin
+    document.querySelector("#tulokset").innerHTML = taulu;
 }
