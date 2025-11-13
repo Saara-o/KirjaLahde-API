@@ -4,7 +4,7 @@ Tekijä: Saara Orvas
 ## Verkkolinkit:
 Linkki videoesittelyyn: 
 
-Linkki julkaistuun APIin: 
+Linkki julkaistuun APIin: [KirjaLähde](https://kirjalahde-api.netlify.app/)
 
 
 ## Oma arvio työstä ja oman osaamisen kehittymisestä
@@ -55,7 +55,7 @@ Projektin toteutuksessa on käytetty seuraavia teknologioita:
 
 TAI
 
-Mene linkistä julkaistuun sovellukseen, jolloin repositorion lataaminen ei ole tarpeen.
+Mene [linkistä](https://kirjalahde-api.netlify.app/) julkaistuun sovellukseen, jolloin repositorion lataaminen ei ole tarpeen.
 
 ## Kiitokset
 Projektin toteutuksessa hyödynnettiin seuraavia lähteitä:
